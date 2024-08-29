@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include "takeVote.h"
 
-void singleVote(int data[], int total, char options[][200]) {
+void singleVote(int* data, int total, char options[][200]) {
     int choice;
     while(1) {
         printf("Enter your Choice: ");
         scanf("%d", &choice);
         if(choice < 1 || choice > total) {
-            printf("     Choose a valid options (1 to %d). \n ", total);
+            printf(" Choose a valid options (1 to %d). \n ", total);
         } else {
             break;
         }
@@ -30,7 +31,7 @@ void singleVote(int data[], int total, char options[][200]) {
     }
 }
 
-void mutliVote(int* data, int total, char options[][200]) {
+void multiVote(int* data, int total, char options[][200]) {
     char choice;
     int storeChoices[total];
     
@@ -84,15 +85,15 @@ void mutliVote(int* data, int total, char options[][200]) {
     }
 }
 
-int main() {
-    int data[] = {0, 0, 0, 0};
-    int total = 4;
-    char options[][200] = {"first", "second", "third", "fourth"};
+// int main() {
+//     int data[] = {0, 0, 0, 0};
+//     int total = 4;
+//     char options[][200] = {"first", "second", "third", "fourth"};
 
-    mutliVote(data, total, options);
-    mutliVote(data, total, options);
+//     mutliVote(data, total, options);
+//     mutliVote(data, total, options);
 
-    for(int i = 0; i < total; i++) {
-        printf("%d ", data[i]);
-    }
-}
+//     for(int i = 0; i < total; i++) {
+//         printf("%d ", data[i]);
+//     }
+// }
