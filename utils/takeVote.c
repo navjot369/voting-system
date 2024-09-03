@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "takeVote.h"
+#include <stdlib.h>
 
 void singleVote(int* data, int total, char options[][200]) {
     int choice;
@@ -82,6 +83,19 @@ void multiVote(int* data, int total, char options[][200]) {
         }else{
             printf(" Choose valid option - Y/N \n");
         }
+    }
+}
+
+int nextVote() {
+    system("clear");
+    printf("       Your vote have been casted. \n");
+    printf("  Press Enter to cast next Vote. Any other key will end the voting. \n");
+    char ch = getchar();
+    if(ch == '\n') {
+        return 1;
+    }
+    else{
+        return 0;
     }
 }
 
