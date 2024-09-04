@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "takeVote.h"
 #include <stdlib.h>
+#include "../include/takeVote.h"
 
-void singleVote(int* data, int total, char options[][200]) {
+void singleVote(int* data, int total, char options[][100]) {
     int choice;
     while(1) {
         printf("Enter your Choice: ");
@@ -32,10 +32,10 @@ void singleVote(int* data, int total, char options[][200]) {
     }
 }
 
-void multiVote(int* data, int total, char options[][200]) {
+void multiVote(int* data, int total, char options[][100]) {
     char choice;
     int storeChoices[total];
-    
+
     for(int i = 0;i < total; i++) storeChoices[i] = 0;
     printf("** Choose multiple times, leave black when finished. \n");
     while(1) {
@@ -46,7 +46,7 @@ void multiVote(int* data, int total, char options[][200]) {
         }
         while(getchar() != '\n');
         choice -= '0';
-        
+
         if(choice < 1 || choice > total ) {
             printf("     Choose a valid number (1 to %d).\n", total);
         } else {
@@ -89,7 +89,7 @@ void multiVote(int* data, int total, char options[][200]) {
 int nextVote() {
     system("clear");
     printf("       Your vote have been casted. \n");
-    printf("  Press Enter to cast next Vote. Any other key will end the voting. \n");
+    printf("  Press Enter to cast next Vote. Press any other key before enter to end voting. \n");
     char ch = getchar();
     if(ch == '\n') {
         return 1;
@@ -111,3 +111,7 @@ int nextVote() {
 //         printf("%d ", data[i]);
 //     }
 // }
+
+int main() {
+    printf("%d", nextVote());
+}

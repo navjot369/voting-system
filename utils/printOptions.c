@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "printOptions.h"
+#include "../include/printOptions.h"
 
-void printOptionsWC(char options[][200], char title[], int total, int* curr) {
+int main() {
+    nextVote(;printOptions.h"
+
+void printOptionsWC(char options[][100], char title[], int total, int* curr) {
     system("clear");
     printf("   %-40s (Count) \n", title);
     for(int i  = 0 ;i < total; i++) {
@@ -11,7 +14,7 @@ void printOptionsWC(char options[][200], char title[], int total, int* curr) {
     printf("\n");
 }
 
-void printOptions(char options[][200], char title[], int total, int* curr) {
+void printOptions(char options[][100], char title[], int total, int* curr) {
     system("clear");
     printf("   %s \n", title);
     for(int i  =0 ;i < total; i++) {
@@ -30,5 +33,3 @@ void printOptions(char options[][200], char title[], int total, int* curr) {
 //     printOptions(options, title, total, curr);
 //     printOptionsWC(options, title, total, curr);
 // }
-
-

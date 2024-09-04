@@ -32,7 +32,7 @@ void startVoting() {
 
     //Is multiple options allowed
     char isMulti = 'O';
-    void (*InputFunc)(int*, int, char[][200]);
+    void (*InputFunc)(int*, int, char[][100]);
     while(1) {
         printf("Allow Multiple options (Y/N)?  ");
         scanf("%c", &isMulti);
@@ -65,7 +65,7 @@ void startVoting() {
     //Show real time stats
     char showReal = 'O';
     // Pointer to function to pass depending on whether to print real time stats or not
-    void (*showOptionsFunc)(char[][200], char[], int, int*);
+    void (*showOptionsFunc)(char[][100], char[], int, int*);
     while(1) {
         printf("Do you want to show real time count (Y/N)?  ");
         scanf("%c", &showReal);
