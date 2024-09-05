@@ -1,15 +1,13 @@
 #include <stdio.h>
-#include "voting/InitialiseVoting.h"
-#include "utils/printOptions.h"
-#include "utils/takeVote.h"
-// #include "OpenVoting.h"
-// #include "AnonymousVoting.h"
+#include "include/InitialiseVoting.h"
+#include "include/printOptions.h"
+#include "include/takeVote.h"
 
 
 int main() {
-    printf("WELCOME...!! Press enter to start Voting. \n");
+    printf("WELCOME...!! Press enter to start Voting.");
     getchar();
-    
+
     startVoting();
 
     return 0;

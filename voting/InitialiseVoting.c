@@ -1,8 +1,10 @@
 #include <stdio.h>
-#include "../utils/printOptions.h"
-#include "../utils/takeVote.h"
-#include "InitialiseVoting.h"
-#include "startTypeVoting.h"
+#include <string.h>
+#include "../include/printOptions.h"
+#include "../include/takeVote.h"
+#include "../include/InitialiseVoting.h"
+#include "../include/AnonymousVoting.h"
+#include "../include/OpenVoting.h"
 
 void startVoting() {
     char title[200];
@@ -11,6 +13,10 @@ void startVoting() {
     // Title and number of options required input
     printf("Enter title: ");
     fgets(title, 200, stdin);
+    size_t len = strlen(title);
+    if(title[len-1] == '\n') {
+        title[len-1] = '\0';
+    }
     while(1) {
         printf("Enter number of options: ");
         scanf("%d", &numOptions);
@@ -28,11 +34,15 @@ void startVoting() {
     for(int i = 0; i < numOptions; i++) {
         printf("Enter options %d: ", i+1);
         fgets(options[i], 200, stdin);
+        size_t len = strlen(options[i]);
+        if(options[i][len-1] == '\n') {
+            options[i][len-1] = '\0';
+        }
     }
 
     //Is multiple options allowed
     char isMulti = 'O';
-    void (*InputFunc)(int*, int, char[][100]);
+    void (*InputFunc)(int*, int, char[][100], int*);
     while(1) {
         printf("Allow Multiple options (Y/N)?  ");
         scanf("%c", &isMulti);
