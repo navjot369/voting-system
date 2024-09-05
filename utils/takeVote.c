@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../include/takeVote.h"
 
-void singleVote(int* data, int total, char options[][100]) {
+void singleVote(int* data, int total, char options[][100], int* turn) {
     int choice;
     while(1) {
         printf("Enter your Choice: ");
@@ -23,6 +23,7 @@ void singleVote(int* data, int total, char options[][100]) {
         while(getchar() != '\n');
         if(ch == 'Y') {
             *(data+choice-1) += 1;
+            (*turn)++;
             break;
         }else if(ch == 'N') {
             break;
@@ -32,7 +33,7 @@ void singleVote(int* data, int total, char options[][100]) {
     }
 }
 
-void multiVote(int* data, int total, char options[][100]) {
+void multiVote(int* data, int total, char options[][100], int* turn) {
     char choice;
     int storeChoices[total];
 
@@ -77,6 +78,7 @@ void multiVote(int* data, int total, char options[][100]) {
                     *(data+i) += 1;
                 }
             }
+            (*turn)++;
             break;
         }else if(ch == 'N') {
             break;
@@ -112,6 +114,6 @@ int nextVote() {
 //     }
 // }
 
-int main() {
-    printf("%d", nextVote());
-}
+// int main() {
+//     printf("%d", nextVote());
+// }

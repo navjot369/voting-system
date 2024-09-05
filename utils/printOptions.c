@@ -2,16 +2,15 @@
 #include <stdlib.h>
 #include "../include/printOptions.h"
 
-int main() {
-    nextVote(;printOptions.h"
+
 
 void printOptionsWC(char options[][100], char title[], int total, int* curr) {
     system("clear");
-    printf("   %-40s (Count) \n", title);
+    // printf( "\e[2J" );
+    printf(" (Count)   %s\n", title);
     for(int i  = 0 ;i < total; i++) {
-        printf("%d. %-40s %4d\n", i+1, options[i], *(curr+i));
+        printf("%5d      %d. %s\n", *(curr+i), i+1, options[i]);
     }
-    printf("\n");
 }
 
 void printOptions(char options[][100], char title[], int total, int* curr) {
