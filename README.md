@@ -53,7 +53,7 @@ This project is a mini voting system implemented in C, designed for students to 
 └── voting
     ├── AnonymousVoting.c
     ├── InitialiseVoting.c
-    ├── OpenVoting.c
+    └── OpenVoting.c
 ```
 
 ## Installation and Usage
