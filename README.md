@@ -1,23 +1,62 @@
-# C Voting System
+# Voting System in C
+A voting system in C for students to gather opinions, conduct polls, and collect feedback.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Folder Structure](#folder-structure)
+- [Installation and Usage](#installation-and-usage)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
 ## Introduction
 
-This project is a mini voting system implemented in C, designed for organizations and institutions to gather opinions on various topics. It provides a simple yet effective way to conduct polls, make decisions, and collect feedback from members or participants.
+This project is a mini voting system implemented in C, designed for students to gather opinions on various topics. It provides a simple yet effective way to conduct polls, make decisions, and collect feedback from members or participants.
 
 ## Features
 
-- Multiple voting sessions: Create and manage different voting events
-- Real-time vote counting: Tally votes as they are cast
-- Result generation: Produce clear, easy-to-understand voting results
-- Command-line interface: Easy-to-use text-based menu system
-- Anonymous Voting: Provide a way to poll votes without requiring IDs
+- Multiple votes by single user
+- Real-time vote counting
+- Result display using infographics
+- Easy-to-use CLI based menu system
+- Anonymous Voting, no user registration required
+- Secure Voting, uses database to verify voter's identity
 
-## Requirements
+## Folder Structure
 
-- C compiler (GCC recommended)
-- Standard C libraries
+```bash
+.
+├── README.md
+├── main.c
+├── run.sh
+├── Voting.a
+├── graphics
+│   └── graphs.c
+├── include
+│   ├── AnonymousVoting.h
+│   ├── InitialiseVoting.h
+│   ├── OpenVoting.h
+│   ├── clearScreen.h
+│   ├── getResult.h
+│   ├── graphs.h
+│   ├── printOptions.h
+│   └── takeVote.h
+├── utils
+│   ├── clearScreen.c
+│   ├── getResult.c
+│   ├── printOptions.c
+│   └── takeVote.c
+├── votersRecord
+│   ├── data
+│   │   └── data.txt
+│   ├── enterRecord.c
+└── voting
+    ├── AnonymousVoting.c
+    ├── InitialiseVoting.c
+    ├── OpenVoting.c
+```
 
-## Installation
+## Installation and Usage
 
 1. Clone the repository:
    ```
@@ -27,22 +66,16 @@ This project is a mini voting system implemented in C, designed for organization
    ```
    cd voting-system
    ```
-3. Compile the program:
+3. For Linux or macOS:
    ```
-   gcc -o voting_system main.c
+   ./run.sh
    ```
-
-## Usage
-
-1. Run the compiled program:
+   For Windows:
    ```
-   ./voting_system
+   ./run.bat
    ```
-2. Follow the on-screen prompts to continue
+    Follow the on-screen prompts to continue
 
-## Example
-
-// To be added
 
 ## Contributing
 
