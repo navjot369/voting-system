@@ -63,18 +63,22 @@ void printRankWise(int res[], int total, char options[][100]) {
 
     int rank = 1;
     int count = 0;
-    printf("| Rank | Count | S.no. |          Option \n");
+    int isThisRank = 0;
+    printf("| Rank | Count | Option \n");
     while(count < total) {
         for(int i = 0; i < total; i++) {
             if(res[i] == winner) {
-                printf("|%3d   |%4d   |%4d   | %s \n", rank, res[i], i, options[i]);
+                isThisRank = 1;
+                printf("|%3d   |%4d   | %s \n", rank, res[i], options[i]);
+                count++;
             }
         }
-        rank++;
+        if(isThisRank > 0)rank++;
+        isThisRank = 0;
         winner--;
     }
 }
 
-int main() {
-    printWinner(1, "Yes we did it");
-}
+// int main() {
+//     printWinner(1, "Yes we did it");
+// }

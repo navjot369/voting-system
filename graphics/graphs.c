@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include "../include/graphs.h"
 
-void RatioLine(int res[], int total) {
+void RatioLine(int res[], int total, char options[][100]) {
     int votes = 0;
     for(int i = 0; i < total; i++) votes += res[i];
 
@@ -11,6 +12,7 @@ void RatioLine(int res[], int total) {
     }
     printf("\n%45s%s%45s\n", "", "Options(Votes)", "");
     for(int i = 0; i < total; i++) {
+        if(res[i] == 0) continue;
         printf("%*s%d(%d)%*s ", ratio[i]/2-2, "", i+1, res[i],ratio[i]/2-2,"");
     }
     printf("\n");
@@ -29,11 +31,14 @@ void RatioLine(int res[], int total) {
             turn = 1;
         }
     }
-    printf("\n%47s%s%47s", "", "Ratio", "");
-    printf("\n");
+    printf("\n%47s%s%47s\n", "", "Ratio", "");
+    printf("\nLegends(Options): \n");
+    for(int i = 0; i < total; i++) {
+        printf("%d -> %s\n", i+1, options[i]);
+    }
 }
 
-void HorizontalBar(int res[], int total) {
+void HorizontalBar(int res[], int total, char options[][100]) {
     int votes = 0;
     for(int i = 0; i < total; i++) votes += res[i];
 
@@ -51,15 +56,20 @@ void HorizontalBar(int res[], int total) {
     for(int j = 0; j < 100; j++) str2[j] = ' ';
     int turn = 0;
 
-    printf("(Options)%*s(Count)\n", highestRatio-1, "");
+    printf("\n(Options)%*s(Count)\n", highestRatio-1, "");
     for(int i = 0; i < total; i++) {
         printf("%5d    %.*s%.*s (%d)\n", i+1, ratio[i], str1, highestRatio-ratio[i]-2, str2, res[i]);
+    }
+    printf("\nLegends(Options): \n");
+    for(int i = 0; i < total; i++) {
+        printf("%d -> %s\n", i+1, options[i]);
     }
 }
 
 // int main() {
 //     int total = 4;
 //     int arr[] = {5, 0, 0, 0};
-//     RatioLine(arr, total);
-//     HorizontalBar(arr, total);
+//     char arr2[][100] = {"hslkdjhf", "lksdjf", "klsdjf"};
+//     RatioLine(arr, total, arr2);
+//     HorizontalBar(arr, total, arr2);
 // }

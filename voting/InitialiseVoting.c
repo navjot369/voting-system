@@ -25,6 +25,7 @@ void startVoting() {
         }else{
             break;
         }
+        printf("%d", numOptions);
     }
 
     while(getchar() != '\n');

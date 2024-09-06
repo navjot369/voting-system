@@ -14,21 +14,21 @@ void singleVote(int* data, int total, char options[][100], int* turn) {
         }
     }
 
-    printf("\nYour voted for option - %d. %s \n", choice, options[choice-1]);
+    printf("Your voted for option - %d. %s \n", choice, options[choice-1]);
     while(getchar() != '\n');
     char ch;
     while(1) {
-        printf("Enter Y to confirm and N to cancel: ");
+        printf("Press Enter to confirm and N before Enter to cancel: ");
         ch = getchar();
         while(getchar() != '\n');
-        if(ch == 'Y') {
+        if(ch == '\n') {
             *(data+choice-1) += 1;
             (*turn)++;
             break;
         }else if(ch == 'N') {
             break;
         }else{
-            printf(" Choose valid option - Y/N \n");
+            printf(" Choose valid option - Enter/N before Enter \n");
         }
     }
 }
@@ -60,7 +60,7 @@ void multiVote(int* data, int total, char options[][100], int* turn) {
         }
     }
 
-    printf("\nYour voted for option(s) - \n");
+    printf("Your voted for option(s) - \n");
     for(int i = 0; i < total; i++) {
         if(storeChoices[i] == 1) {
             printf("     %d. %s \n", i+1, options[i]);
@@ -69,10 +69,10 @@ void multiVote(int* data, int total, char options[][100], int* turn) {
 
     char ch;
     while(1) {
-        printf("Enter Y to confirm and N to cancel: ");
-        ch = getchar();
         while(getchar() != '\n');
-        if(ch == 'Y') {
+        printf("Press Enter to confirm and N before Enter to cancel: ");
+        ch = getchar();
+        if(ch == '\n') {
             for(int i = 0; i < total; i++) {
                 if(storeChoices[i] == 1) {
                     *(data+i) += 1;
@@ -83,7 +83,7 @@ void multiVote(int* data, int total, char options[][100], int* turn) {
         }else if(ch == 'N') {
             break;
         }else{
-            printf(" Choose valid option - Y/N \n");
+            printf(" Choose valid option - Enter/N before Enter \n");
         }
     }
 }
