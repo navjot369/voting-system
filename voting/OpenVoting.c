@@ -35,7 +35,7 @@ void startOpenVoting(char title[200], char options[][100], int total,
  void (*InputFunc)(int*, int, char[][100], int*)) {
 
     FILE *file;
-    file = fopen("./../votersRecord/data/data.txt", "rb");
+    file = fopen("./votersRecord/data/data.txt", "rb");
 
     if(file == NULL) {
         perror("Data not found...!!");
@@ -79,16 +79,16 @@ void startOpenVoting(char title[200], char options[][100], int total,
             printf("Invalid Id...!\n");
             continue;
         }
-        if(result[ind][0] == -1) {
+        if(result[ind][0] != -1) {
             printf("You have already casted vote...!\n");
             continue;
         }
         for(int i = 0; i <total; i++) {
             result[ind][i] = 0;
         }
-        printf("Welcome...! %s\n", data[ind].name);
 
         showOptionsFunc(options, title, total, mainResult);
+        printf("Welcome...! %s, ", data[ind].name);
         InputFunc(result[ind], total, options, &turn);
 
         voteCasted = 0;

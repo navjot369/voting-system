@@ -37,8 +37,7 @@ void writeData() {
         while(getchar() != '\n');
 
         printf("Enter student name: ");
-        scanf("%s", name);
-        while(getchar() != '\n');
+        fgets(name, 20, stdin);
         len = strlen(name);
         name[len-1] = '\0';
         strcpy(temp.name, name);

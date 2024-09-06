@@ -45,6 +45,7 @@ void multiVote(int* data, int total, char options[][100], int* turn) {
             break;
         }
         while(getchar() != '\n');
+        fflush(stdin);
         choice -= '0';
 
         if(choice < 1 || choice > total ) {
