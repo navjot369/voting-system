@@ -13,14 +13,13 @@ void singleVote(int* data, int total, char options[][100], int* turn) {
             break;
         }
     }
+    while(getchar() != '\n');
 
     printf("Your voted for option - %d. %s \n", choice, options[choice-1]);
-    while(getchar() != '\n');
     char ch;
     while(1) {
         printf("Press Enter to confirm and N before Enter to cancel: ");
         ch = getchar();
-        while(getchar() != '\n');
         if(ch == '\n') {
             *(data+choice-1) += 1;
             (*turn)++;
@@ -69,7 +68,6 @@ void multiVote(int* data, int total, char options[][100], int* turn) {
 
     char ch;
     while(1) {
-        while(getchar() != '\n');
         printf("Press Enter to confirm and N before Enter to cancel: ");
         ch = getchar();
         if(ch == '\n') {
@@ -100,20 +98,3 @@ int nextVote() {
         return 0;
     }
 }
-
-// int main() {
-//     int data[] = {0, 0, 0, 0};
-//     int total = 4;
-//     char options[][200] = {"first", "second", "third", "fourth"};
-
-//     mutliVote(data, total, options);
-//     mutliVote(data, total, options);
-
-//     for(int i = 0; i < total; i++) {
-//         printf("%d ", data[i]);
-//     }
-// }
-
-// int main() {
-//     printf("%d", nextVote());
-// }

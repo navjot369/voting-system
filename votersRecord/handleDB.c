@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <dirent.h>
-#include "./../include/handleDB.h"
 
 void handleDB() {
     int option;
@@ -83,10 +82,4 @@ void handleDB() {
 }
 
 void addRecord() {
-}
-
-
-
-int main() {
-
 }

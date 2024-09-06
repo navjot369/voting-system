@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "../include/takeVote.h"
 #include "../include/AnonymousVoting.h"
 #include "../include/getResult.h"
 #include "../include/graphs.h"
+#include "../include/clearScreen.h"
 
 void startAnonymousVoting(char title[200], char options[][100], int total,
  void (*showOptionsFunc)(char[][100], char[], int, int*),
@@ -15,7 +15,7 @@ void startAnonymousVoting(char title[200], char options[][100], int total,
     int turn = 0;
     int cont = 1;
 
-    system("clear");
+    clearScreen();
     printf("Ready...! Press Enter to start voting");
     while(getchar() != '\n');
 
@@ -25,7 +25,8 @@ void startAnonymousVoting(char title[200], char options[][100], int total,
         if(nextVote()); else break;
     }
 
-    system("clear");
+
+    clearScreen();
     printf("Total number of votes casted - %d\n", turn);
     getResult(result, total, options);
 

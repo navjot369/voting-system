@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "include/InitialiseVoting.h"
-#include "include/printOptions.h"
-#include "include/takeVote.h"
 
 
 int main() {
